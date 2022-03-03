@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1><%=title%></h1>
+  <form action="/flights" method="POST">
+    <label for="airline">Airline: </label>
+    <select name="airline" id="airline">
+      <option value="American">American</option>
+      <option value="Southwest">Southwest</option>
+      <option value="United">United</option>
+    </select>
+    <br>
+    <label for="airport">Airport: </label>
+    <select name="airport" id="airport">
+      <option value="AUS">AUS</option>
+      <option value="DFW">DFW</option>
+      <option value="DEN">DEN</option>
+      <option value="LAX">LAX</option>
+      <option value="SAN">SAN</option>
+    </select>
+    <br>
+    <label for="flight-number">Flight Number:</label>
+    <input name="flightNo" id="flight-number" type="number" min="10" max="9999">
+    <br>
+    <label for="departure-time">Departs:</label>
+    <input id="departure-time" name="departs" type="datetime-local">
+    <br>
+    <button type="submit">Add Flight</button>
+  </form>
+</body>
+</html>
