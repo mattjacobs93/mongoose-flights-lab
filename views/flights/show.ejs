@@ -42,6 +42,11 @@
     </thead>
     <tbody>
 
+        <%flight.meals.forEach(meal => { %>
+          <tr>
+            <td>Meal: <%=meal.name%></td>
+          </tr>
+          <% }) %>
 
     </tbody>
   </table>

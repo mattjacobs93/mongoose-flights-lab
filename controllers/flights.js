@@ -36,7 +36,7 @@ function create (req,res) {
 }
 
 function show (req, res) {
-  console.log(req.params.id)
+  
   Flight.findById(req.params.id)
   .populate('meals')
   .exec(function(error,flight) {
@@ -66,10 +66,7 @@ function addToTickets (req,res) {
       else res.redirect(`/flights/${id}`)
     })
   })
-  // const newTicket = {}
-  // newTicket.price = req.body.price
-  // console.log(newTicket)
-  console.log(id, req.body)
+
 }
 
 function associateMeal (req,res) {
@@ -77,9 +74,24 @@ function associateMeal (req,res) {
 
   Flight.findById(req.body.id, function (error,flight) {
     Meal.find({name: req.body.name}, function (error2,meal) {
-      console.log('Meal:',meal,'Meal ID:', meal[0]._id)
+      
       flight.meals.push(meal[0]._id)
     })
+  })
+
+
+  Flight.findById(req.body.id)
+  .populate('meals')
+  .exec(function(error,flight) {
+    Meal.find({_id: {$nin: flight.meals._id}}, function (error,meals) {
+      res.render('flights/show',{
+        title:'Flight Info',
+        flight,
+        meals
+      })
+
+    })
+
   })
 
 }
