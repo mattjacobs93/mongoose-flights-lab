@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <nav>
+    <a href="/flights">ALL FLIGHTS</a>
+    <a href="/flights/new">ADD FLIGHT</a>
+  </nav>
+  <h1>Flight Number <%=flight.flightNo%></h1>
+  <h2>Airline: <%=flight.airline%></h2>
+  <h2>Airport: <%=flight.airport%></h2>
+  <h2>Departs: <%=flight.departs%></h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Tickets</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% flight.tickets.forEach(ticket=>{%>
+          <tr>
+            <td>Seat: <%=ticket.seat%></td>
+            <td>Price: <%=ticket.price%></td>
+          </tr>
+      <% }) %>
+
+    </tbody>
+  </table>
+  <a href="/tickets/<%=flight.id%>/new/"><button>Add Ticket</button></a>
+
+</body>
+</html>

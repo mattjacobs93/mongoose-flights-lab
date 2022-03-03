@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import { ticketSchema } from "./ticket.js";
 
 const Schema =  mongoose.Schema
 
@@ -28,7 +29,8 @@ const flightSchema = new Schema({
       date.setTime(date.getTime() + (365 * 24 * 60 * 60 * 1000))
       return date
     }
-  }
+  },
+  tickets: [ticketSchema]
   }, 
   
   {timestamps: true})

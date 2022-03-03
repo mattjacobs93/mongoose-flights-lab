@@ -4,9 +4,13 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title><%=title%></title>
 </head>
 <body>
+  <nav>
+    <a href="/flights">ALL FLIGHTS</a>
+    <a href="/flights/new">ADD FLIGHT</a>
+  </nav>
 <h1><%=title%></h1>
 
 <table>
@@ -16,6 +20,7 @@
       <th>Airport</th>
       <th>Flight Number</th>
       <th>Departs</th>
+      <th>Flight Detail Links</th>
     </tr>
   </thead>
   <tbody>
@@ -25,6 +30,7 @@
         <td><%=flight.airport%></td>
         <td><%=flight.flightNo%></td>
         <td><%=flight.departs%></td>
+        <td><a href="/flights/<%=flight.id%>" method="GET">details</a></td>
       </tr>
     <% }) %>
   </tbody>
