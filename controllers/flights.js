@@ -1,5 +1,6 @@
 import { Flight } from "../models/flight.js";
 import {Meal} from '../models/meal.js'
+import * as ticketCtrl from './tickets.js'
 
 function index (req, res) {
   Flight.find({}, function (error,flights) {
@@ -83,7 +84,9 @@ function associateMeal (req,res) {
 }
 
  
-
+function newTicket (req,res) {
+  ticketCtrl.newTicket(req,res)
+}
 
 export {
   index,
@@ -91,5 +94,6 @@ export {
   create,
   show,
   addToTickets,
-  associateMeal
+  associateMeal,
+  newTicket
 }

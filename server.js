@@ -11,7 +11,6 @@ import("./config/database.js")
 // import routers
 import { router as indexRouter } from './routes/index.js'
 import { router as flightsRouter } from './routes/flights.js'
-import { router as ticketsRouter} from './routes/tickets.js'
 import {router as mealsRouter} from './routes/meals.js'
 
 // set up app
@@ -37,7 +36,6 @@ app.use(
 // mounted routers
 app.use('/', indexRouter)
 app.use('/flights', flightsRouter)
-app.use('/tickets',ticketsRouter)
 app.use('/meals',mealsRouter)
 
 // catch 404 and forward to error handler
