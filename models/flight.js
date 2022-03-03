@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import { Meal } from "./meal.js";
 import { ticketSchema } from "./ticket.js";
 
 const Schema =  mongoose.Schema
@@ -30,12 +31,13 @@ const flightSchema = new Schema({
       return date
     }
   },
-  tickets: [ticketSchema]
+  tickets: [ticketSchema],
+  meals:{type: [Schema.Types.ObjectId], ref:"Meal"},
   }, 
   
   {timestamps: true})
 
-  const Flight = mongoose.model('Fligth', flightSchema)
+  const Flight = mongoose.model('Flight', flightSchema)
 
   export {
     Flight

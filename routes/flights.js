@@ -11,6 +11,7 @@ router.get('/:id', flightsCtrl.show)
 
 router.post('/', flightsCtrl.create)
 router.post('/:id/tickets',flightsCtrl.addToTickets)
+router.post('/:id/meals', flightsCtrl.associateMeal)
 
 export {
   router
