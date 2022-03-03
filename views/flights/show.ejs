@@ -49,8 +49,9 @@
   <form action="/flights/<%=flight.id%>/meals" method="POST">
     <label for="meal-name">Choose a meal to add to this flight: </label>
     <select name="name" id="meal-name">
-
-
+        <%meals.forEach(meal => {%>
+          <option value="<%=meal.name%>"><%=meal.name%></option>
+        <% })%>
     </select>
     <input name="id" type="text" value="<%=flight.id%>" style="display:none">
     <br>
