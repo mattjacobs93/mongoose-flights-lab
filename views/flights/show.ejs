@@ -10,6 +10,7 @@
   <nav>
     <a href="/flights">ALL FLIGHTS</a>
     <a href="/flights/new">ADD FLIGHT</a>
+    <a href="/meals/new">ADD MEAL</a>
   </nav>
   <h1>Flight Number <%=flight.flightNo%></h1>
   <h2>Airline: <%=flight.airline%></h2>
@@ -41,7 +42,7 @@
       </tr>
     </thead>
     <tbody>
-
+        <%console.log(flight.meals)%>
         <%flight.meals.forEach(meal => { %>
           <tr>
             <td>Meal: <%=meal.name%></td>
@@ -53,14 +54,14 @@
 
   <form action="/flights/<%=flight.id%>/meals" method="POST">
     <label for="meal-name">Choose a meal to add to this flight: </label>
-    <select name="name" id="meal-name">
+    <select name="name" id="meal-name" <%- (meals.length===0) ? "disabled" : ""%>>
         <%meals.forEach(meal => {%>
           <option value="<%=meal.name%>"><%=meal.name%></option>
         <% })%>
     </select>
     <input name="id" type="text" value="<%=flight.id%>" style="display:none">
     <br>
-    <button type="submit">Add Meal</button>
+    <button type="submit" <%- (meals.length===0) ? "disabled" : ""%>>Add Meal</button>
   </form>
 
 
